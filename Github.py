@@ -21,7 +21,32 @@ def fetch_github(owner,repo,endpoint):
     print(data)
     return data
 
+# Load Issuses
+def load_issuses(issues):
+    docs=[];
+    for entry in issues:
+        metadata={
+            "author":entry["user"]["login"],
+            "comments":entry["comments"],
+            "body":entry["body"],
+            "labels":entry ["labels"],
+            "created_at":entry["created_at"]
+        }
+        data =entry["title"]
+        if entry["body"]:
+            data+=entry["body"]
+        doc=Document(page_content=data, metadata=metadata);
+        docs.append(doc)
+    return docs;
+
+# Fetch_github_issuses
+
+
+
+
+# Call Fetch_Github()
 owner ="expressjs"
 repo="express"
 endpoint="issues"
 fetch_github(owner,repo,endpoint)
+
