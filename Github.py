@@ -40,6 +40,10 @@ def load_issuses(issues):
     return docs;
 
 # Fetch_github_issuses
+def fetch_github_issuses(owner,repo,endpoint):
+    endpoint="issuses"
+    data=fetch_github(owner,repo,endpoint)
+    return load_issuses(data)
 
 
 
